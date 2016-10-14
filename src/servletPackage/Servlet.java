@@ -22,9 +22,11 @@ public class Servlet extends HttpServlet implements javax.servlet.Servlet {
 	 * 
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//		System.out.println("Test");
 		response.setContentType("text/html");
-		PrintWriter writer = response.getWriter().append("Served at: ").append(request.getContextPath());
-		writer.println("<html><body>This is <b>bold</b></body></html>");
+		String searchTerm = request.getParameter("searchTerm");
+		PrintWriter writer = response.getWriter();
+		writer = response.getWriter().append("<html><body>").append(request.getContextPath());
+		writer.println("&nbsp;Served at: <br />");
+		writer.println("<p>You searched for.. "+searchTerm+"</p></body></html>");
 	} 
 }
